@@ -14,6 +14,9 @@ export default class SwipeableFlatList extends Component {
 		renderLeft: PropTypes.func,
 		renderRight: PropTypes.func,
 		itemBackgroundColor: PropTypes.string,
+		refreshing: PropTypes.bool,
+		handleLoadmore: PropTypes.func,
+		handleRefresh: PropTypes.func,
 	};
 
 	static defaultProps = {
@@ -43,6 +46,9 @@ export default class SwipeableFlatList extends Component {
 			renderRight,
 			itemBackgroundColor,
 			style,
+			refreshing,
+			handleLoadmore,
+			handleRefresh,
 		} = this.props;
 		return (
 			<FlatList
@@ -60,6 +66,11 @@ export default class SwipeableFlatList extends Component {
 				}
 				onScroll={this.handleScroll}
 				style={style}
+				keyExtractor={item => item.id}
+				onRefresh={this.handleRefresh.bind(this)}
+				refreshing={refreshing}
+				onEndReachedThreshold={0.5}
+				onEndReached={handleLoadmore.bind(this)}
 			/>
 		);
 	}

@@ -27,6 +27,7 @@
   "homepage": "https://github.com/gitboss2000/react-native-swipeable-flat-list#readme",
   "peerDependencies": {
     "react": "^16.0.0-alpha.6",
-    "react-native": "^0.44.0"
+    "react-native": "^0.44.0",
+    "react-native-elements": "^0.15.0"
   }
 }
